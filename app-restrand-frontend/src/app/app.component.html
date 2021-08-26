@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-grid-list cols="8" rowHeight="50px">
+    <mat-grid-tile colspan="7" rowspan="2"></mat-grid-tile><mat-grid-tile colspan="1" rowspan="1">L</mat-grid-tile>
+
+    <mat-grid-tile colspan="8" rowspan="2">
+      <!--place for login-->
+    </mat-grid-tile>
+
+    <!--title-->
+    <mat-grid-tile colspan="8" rowspan="2">
+      <p class="title">RESTRAND</p>
+    </mat-grid-tile>
+    <!--subtitle-->
+    <mat-grid-tile colspan="8" rowspan="1">
+      <p class="subtitle">Lorem ipsum dol ma sor...</p>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1"></mat-grid-tile>
+
+    <!--buttons-->
+    <mat-grid-tile colspan="2" rowspan="1">
+      <app-random-restaurant></app-random-restaurant>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1">
+      <app-new-restaurant></app-new-restaurant>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2" rowspan="1"></mat-grid-tile>
+  </mat-grid-list>
+
+</mat-sidenav-container>
+
+<router-outlet></router-outlet>

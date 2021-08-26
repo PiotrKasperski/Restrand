@@ -1,0 +1,6 @@
+
+<mat-sidenav-container>
+  <mat-list role="list">
+    <mat-list-item *ngFor="let  restaurant of (restaurants|async)">{{restaurant.name}}</mat-list-item>
+  </mat-list>
+</mat-sidenav-container>

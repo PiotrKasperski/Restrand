@@ -1,0 +1,11 @@
+<mat-card>
+  <mat-card-title>
+    {{(restaurant|async)?.name}}
+  </mat-card-title>
+  <mat-card-content>
+    {{(restaurant|async)?.details?.address}}
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="onCloseClick()">Zamknij</button>
+  </mat-card-actions>
+</mat-card>
