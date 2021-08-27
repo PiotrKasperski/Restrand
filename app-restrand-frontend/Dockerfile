@@ -1,5 +1,5 @@
 # Stage 1:build
-FROM node:latest AS development
+FROM node:alpine AS development
 
 WORKDIR  /usr/frontend/src/app
 

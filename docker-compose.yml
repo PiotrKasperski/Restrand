@@ -26,10 +26,7 @@ services:
        - 9229:9229
 
   frontend:
-    build:
-      dockerfile: Dockerfile
-      context: ./app-restrand-frontend
-      target: development
+    image: piotrkasperski/app-restrand:0.1
     command: npm run start
     depends_on:
       - postgres

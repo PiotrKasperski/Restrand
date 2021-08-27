@@ -3,7 +3,7 @@
 #################
 # Specify Node Version and Image
 # Name Image development (can be anything)
-FROM node:latest AS development
+FROM node:alpine AS development
 
 # Specify Working directory inside container
 WORKDIR /usr/src/app
