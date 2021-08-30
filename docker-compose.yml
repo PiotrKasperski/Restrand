@@ -3,7 +3,14 @@ version: "3.8"
 services:
 
   api:
-    image: piotrkasperski/app-restrand-api:0.1
+    build:
+      dockerfile: Dockerfile
+      context: ./app-restrand-api
+      # Only build development stage from Dockerfile
+      target: development
+      # Mount host dir to docker container
+      # Mount api dir to docker container
+      # Reflect file changes from host to docker
     volumes:
       - ./app-restrand-api:/usr/src/app
       - ./usr/src/app/node_modules
@@ -19,15 +26,14 @@ services:
        - 9229:9229
 
   frontend:
-    image: piotrkasperski/app-restrand:0.1
-    command: npm run start
+    image: piotrkasperski/app-restrand
     depends_on:
       - postgres
     volumes:
     - ./app-restrand-frontend:/usr/frontend/src/app
     - /usr/frontend/src/app/node_modules
     ports:
-    - 4200:4200
+    - 4200:80
     links:
       - api
 
