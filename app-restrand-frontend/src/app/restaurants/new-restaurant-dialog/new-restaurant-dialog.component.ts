@@ -35,4 +35,8 @@ export class NewRestaurantDialogComponent implements OnInit {
   onCloseButtonClick(): void {
     this.dialogRef.close(this.newRestaurant);
   }
+
+  onRestaurantSelect(selectedRestaurant: Restaurant): void {
+    this.newRestaurant = selectedRestaurant;
+  }
 }

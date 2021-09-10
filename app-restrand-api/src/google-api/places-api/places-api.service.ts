@@ -35,11 +35,14 @@ export class PlacesApiService {
   }
   private placesDetailParser(apiResponse) {
     return {
-      address: this.addressPraser(apiResponse.address_components),
       name: apiResponse.name,
-      url: apiResponse.url,
-      website: apiResponse.website,
-      rest: apiResponse,
+      details: {
+        address: this.addressPraser(apiResponse.address_components),
+
+        url: apiResponse.url,
+        website: apiResponse.website,
+        rest: apiResponse,
+      },
     };
   }
   private addressPraser(address_components: Array<any>) {

@@ -15,7 +15,7 @@ export class RestaurantsService {
     return this.http.post<Restaurant>('api/restaurants', newRestaurant);
   }
 
-  getRandomRestaurant(): Observable<Object>{
+  getRandomRestaurant(): Observable<any>{
     return this.http.get('/api/random');
   }
   getAllRestaurants(): Observable<any>{
@@ -24,7 +24,8 @@ export class RestaurantsService {
   getRestaurantsAutocompleOptions(query: string): Observable<any>{
     return this.http.get('/api/places?q=' + query);
   }
-  getRestaurantsSerchDetasils(placeId: string){
+  getRestaurantsSerchDetasils(placeId: string): Observable<Restaurant>{
+    // @ts-ignore
     return this.http.get('/api/places/' + placeId);
   }
 //  /*  constructor(private http: HttpClient) { }
