@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+
+  api:
+    image: piotrkasperski/app-restrand-api
+    volumes:
+      - ./app-restrand-api:/usr/src/app
+      - ./usr/src/app/node_modules
+      # RUN in debug mode: npm run start:debug
+      # RUN in dev mode: npm run start:dev
+    command: npm run start:dev
+    environment:
+      DATABASE_URL: postgres://user:password@postgres:5432/db
+      NODE_ENV: development
+      PORT: 3000
+    ports:
+      - 3000:3000
+      - 9229:9229
+
+  frontend:
+    image: piotrkasperski/app-restrand
+    depends_on:
+      - postgres
+    volumes:
+      - ./app-restrand-frontend:/usr/frontend/src/app
+      - /usr/frontend/src/app/node_modules
+    ports:
+      - 4200:80
+    links:
+      - api
+
+  postgres:
+    image: postgres:13.4
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
+    ports:
+      - 35000:5432
+
+  postgres_admin:
+    image: dpage/pgadmin4:4.30
+    depends_on:
+      - postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    ports:
+      - 5050:5050
