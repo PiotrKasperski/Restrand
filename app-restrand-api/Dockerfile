@@ -3,7 +3,7 @@
 #################
 # Specify Node Version and Image
 # Name Image development (can be anything)
-FROM node AS development
+FROM node:latest AS development
 
 # Specify Working directory inside container
 WORKDIR /usr/src/app
@@ -12,7 +12,6 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install deps inside container
-
 RUN npm install
 copy . .
 RUN npm run build

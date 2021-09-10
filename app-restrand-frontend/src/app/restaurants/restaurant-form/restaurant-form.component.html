@@ -1,12 +1,19 @@
 <form> //TODO: [FormControl]
+
+  <div class="row">
+    <div class="col">
+      <app-restaurant-serch></app-restaurant-serch>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col">
       <mat-form-field class="full-width">
-
         <input matInput placeholder="Nazwa" [(ngModel)]="restaurant.name" [ngModelOptions]="{standalone: true}">
       </mat-form-field>
     </div>
   </div>
+
   <div class="row">
     <div class="col">
       <mat-form-field class="full-width">
@@ -15,3 +22,4 @@
     </div>
   </div>
 </form>
+

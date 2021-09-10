@@ -6,7 +6,7 @@ import { NewRestaurantDialogComponent } from './new-restaurant-dialog/new-restau
 import {MatDialogModule} from "@angular/material/dialog";
 import {RestaurantsService} from "./restaurants.service";
 import { RestaurantFormComponent } from './restaurant-form/restaurant-form.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import { RandomRestaurantComponent } from './random-restaurant/random-restaurant.component';
@@ -15,6 +15,9 @@ import {MatCardModule} from "@angular/material/card";
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import { RestaurantSerchComponent } from './restaurant-serch/restaurant-serch.component';
+import {MatIconModule} from "@angular/material/icon";
 
 
 
@@ -25,24 +28,28 @@ import {MatListModule} from "@angular/material/list";
     RestaurantFormComponent,
     RandomRestaurantComponent,
     RandomRestaurantDialogComponent,
-    RestaurantListComponent
+    RestaurantListComponent,
+    RestaurantSerchComponent
   ],
   exports: [
     NewRestaurantComponent,
     RandomRestaurantComponent,
     RestaurantListComponent
   ],
-  imports: [
-    CommonModule,
-    MatButtonModule,
-    MatDialogModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatCardModule,
-    MatSidenavModule,
-    MatListModule
-  ],
+    imports: [
+        CommonModule,
+        MatButtonModule,
+        MatDialogModule,
+        FormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatListModule,
+        MatAutocompleteModule,
+        ReactiveFormsModule,
+        MatIconModule
+    ],
   providers:[RestaurantsService]
 })
 export class RestaurantsModule { }

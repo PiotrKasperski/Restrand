@@ -1,3 +1,9 @@
+import {Address} from './address';
+
 export interface RestaurantDetails {
-  address: string|null|undefined;
+  address: Address;
+  url: string;
+  website: string;
+  rest: any;
+
 }
