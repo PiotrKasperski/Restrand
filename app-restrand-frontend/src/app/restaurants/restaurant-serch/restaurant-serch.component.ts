@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
-import {startWith, switchMap} from 'rxjs/operators';
+import {debounceTime, distinctUntilChanged, startWith, switchMap} from 'rxjs/operators';
 import {RestaurantsService} from '../restaurants.service';
 import {Restaurant} from '../restaurant';
 export interface AutocompleteResponse{
@@ -24,8 +24,10 @@ export class RestaurantSerchComponent implements OnInit {
   ngOnInit(): void {
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
-      switchMap(value => {
-        return this._filter(value || '');
+      debounceTime(1000),
+      distinctUntilChanged(),
+      switchMap(filterValue => {
+        return filterValue === '' ? [] : this.restaurantsService.getRestaurantsAutocompleOptions(filterValue);
       })
     );
   }
@@ -33,15 +35,11 @@ export class RestaurantSerchComponent implements OnInit {
   displayFn(query: AutocompleteResponse){
     return query && query.description ? query.description : '';
   }
-  private _filter(query: string): Observable<AutocompleteResponse[]> {
-    const filterValue = query;
-    console.log(filterValue);
-    return this.restaurantsService.getRestaurantsAutocompleOptions(filterValue);
-  }
+
   selectOption(option: any): void {
     this.restaurantsService.getRestaurantsSerchDetasils(option.value.place_id).subscribe(data => {
       console.log(data);
-        this.onRestaurantSelect.emit(data);
+      this.onRestaurantSelect.emit(data);
       }
     );
 
