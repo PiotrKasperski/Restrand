@@ -17,7 +17,7 @@ export class NewRestaurantDialogComponent implements OnInit {
     details: {
       address: {
         street: '',
-       street_number: 0,
+       street_number: null,
        city: ''},
      url: '',
      website: '',

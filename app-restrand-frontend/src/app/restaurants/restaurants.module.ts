@@ -18,6 +18,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import { RestaurantSerchComponent } from './restaurant-serch/restaurant-serch.component';
 import {MatIconModule} from "@angular/material/icon";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 
 
@@ -48,7 +49,8 @@ import {MatIconModule} from "@angular/material/icon";
         MatListModule,
         MatAutocompleteModule,
         ReactiveFormsModule,
-        MatIconModule
+        MatIconModule,
+        MatGridListModule
     ],
   providers:[RestaurantsService]
 })

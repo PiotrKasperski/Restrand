@@ -1,19 +1,51 @@
-<form> //TODO: [FormControl]
-
-  <div class="row">
-    <div class="col">
+<form>
+  <mat-grid-list cols="5" rowHeight="60px">
+    <!-- row 1-->
+    <mat-grid-tile colspan="3" rowspan="1">
       <mat-form-field class="full-width">
+        <mat-label>Nazwa</mat-label>
         <input matInput placeholder="Nazwa" [(ngModel)]="restaurant.name" [ngModelOptions]="{standalone: true}">
       </mat-form-field>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1">
       <mat-form-field class="full-width">
-        <textarea matInput placeholder="Adres" [(ngModel)]="restaurant.details.address" [ngModelOptions]="{standalone: true}" ></textarea>
+        <mat-label>Telefon</mat-label>
+        <input matInput placeholder="Telefon" [(ngModel)]="restaurant.name" [ngModelOptions]="{standalone: true}">
       </mat-form-field>
-    </div>
-  </div>
+    </mat-grid-tile>
+    <!-- row 2-->
+    <mat-grid-tile colspan="2" rowspan="1">
+      <mat-form-field class="full-width">
+        <mat-label>Ulica</mat-label>
+        <input matInput placeholder="Ulica" [(ngModel)]="restaurant.details.address.street" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-form-field class="full-width">
+        <mat-label>Numer</mat-label>
+        <input matInput placeholder="Nr" [(ngModel)]="restaurant.details.address.street_number" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1">
+      <mat-form-field class="full-width">
+        <mat-label>Miasto</mat-label>
+        <input matInput placeholder="Miasto" [(ngModel)]="restaurant.details.address.city" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+    </mat-grid-tile>
+    <!-- row 3-->
+    <mat-grid-tile colspan="5" rowspan="1">
+      <mat-form-field class="full-width">
+        <mat-label>URL google</mat-label>
+        <input matInput placeholder="URL" [(ngModel)]="restaurant.details.url" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+    </mat-grid-tile>
+    <!-- row 4-->
+    <mat-grid-tile colspan="5" rowspan="1">
+      <mat-form-field class="full-width">
+        <mat-label>Strona Internetowa</mat-label>
+        <input matInput placeholder="Strona" [(ngModel)]="restaurant.details.website" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
 </form>
 

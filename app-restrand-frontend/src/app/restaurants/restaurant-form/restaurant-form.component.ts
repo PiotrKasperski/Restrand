@@ -23,7 +23,7 @@ export class RestaurantFormComponent implements OnInit, ControlValueAccessor {
     details: {
       address: {
         street: '',
-        street_number: 0,
+        street_number: undefined,
         city: ''},
       url: '',
       website: '',
