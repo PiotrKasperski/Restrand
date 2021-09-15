@@ -1,13 +1,22 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
+import { RestaurantAddress } from './restaurant_address.entity';
 
 @Entity()
 export class RestaurantDetails {
   @PrimaryGeneratedColumn()
   id: number;
+  @OneToOne(() => RestaurantAddress)
+  @JoinColumn()
+  address?: RestaurantAddress;
   @Column()
-  addres?: string | null;
+  url?: string;
   @Column()
-  menu?: string | null;
-  @Column()
-  fb?: string | null;
+  website?: string;
 }
+/*{
+      address: {
+ ,
+     url: '',
+     website: '',
+     rest: '',
+   }*/

@@ -1,8 +1,14 @@
 export class CreateRestaurantDto {
   name: string;
-  details?: {
-    address?: string;
-    menu?: string;
-    fb?: string;
-  };
+  details?: CreateRestaurantDetailsDto;
+}
+export class CreateRestaurantDetailsDto {
+  address?: CreateRestaurantAddressDto;
+  url?: string;
+  website?: string;
+}
+export class CreateRestaurantAddressDto {
+  street?: string;
+  street_number?: number;
+  city?: string;
 }
