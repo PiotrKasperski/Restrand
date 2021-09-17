@@ -20,4 +20,7 @@ export class RandomRestaurantDialogComponent implements OnInit {
   onCloseClick() {
     this.dialogRef.close(this.randomRestaurant);
   }
+  getMapUrl(){
+    return this.restaurantService.getRestaurantMap('');
+  }
 }

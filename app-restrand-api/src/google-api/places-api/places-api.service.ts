@@ -1,10 +1,12 @@
-import { HttpService, Injectable } from '@nestjs/common';
+import { HttpService, Inject, Injectable } from '@nestjs/common';
 import { map } from 'rxjs';
-import { response } from 'express';
 
 @Injectable()
 export class PlacesApiService {
-  constructor(private readonly http: HttpService) {}
+  constructor(
+    @Inject('KEY') private KEY: string,
+    private readonly http: HttpService,
+  ) {}
   private key = '&key=AIzaSyCIcgnnBIkOVlcMxUyqPShBbS8Sa0DTsKs';
   async getAutocomplete(query: string) {
     return this.http

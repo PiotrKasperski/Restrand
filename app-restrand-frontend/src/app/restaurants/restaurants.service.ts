@@ -28,6 +28,9 @@ export class RestaurantsService {
     // @ts-ignore
     return this.http.get('/api/places/' + placeId);
   }
+  getRestaurantMap(id: string): Observable<any>{
+    return this.http.get('/api/maps/');
+  }
 //  /*  constructor(private http: HttpClient) { }
 //   getAll():Observable<Array<Restaurant>>{
 //     return this.http.get<Array<Restaurant>>('api/restaurants');
