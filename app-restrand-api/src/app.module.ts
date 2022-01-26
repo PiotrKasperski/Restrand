@@ -5,6 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { RestaurantsModule } from './restaurants/restaurants.module';
 import { GoogleApiModule } from './google-api/google-api.module';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -17,6 +19,8 @@ import { GoogleApiModule } from './google-api/google-api.module';
     }),
     RestaurantsModule,
     GoogleApiModule,
+    AuthenticationModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

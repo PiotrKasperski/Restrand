@@ -1,14 +1,16 @@
-import { HttpService, Inject, Injectable } from '@nestjs/common';
+import { HttpService, Inject, Injectable,  Logger  } from '@nestjs/common';
 import { map } from 'rxjs';
 
 @Injectable()
 export class PlacesApiService {
+  private readonly logger = new Logger(PlacesApiService.name);
   constructor(
     @Inject('KEY') private KEY: string,
     private readonly http: HttpService,
   ) {}
   private key = '&key=AIzaSyCIcgnnBIkOVlcMxUyqPShBbS8Sa0DTsKs';
   async getAutocomplete(query: string) {
+
     return this.http
       .get(
         'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' +
@@ -16,7 +18,8 @@ export class PlacesApiService {
           '%20near%20Wroclaw' +
           this.key,
       )
-      .pipe(map((response) => response.data.predictions));
+      .pipe(map((response) => {
+        return response.data.predictions}));
   }
   async getDetails(places_id: string) {
     return this.http
@@ -33,7 +36,20 @@ export class PlacesApiService {
           '%2Copening_hours' +
           this.key,
       )
-      .pipe(map((response) => this.placesDetailParser(response.data.result)));
+      .pipe(map((response) => {
+        this.logger.log('https://maps.googleapis.com/maps/api/place/details/json?place_id=' +
+            places_id +
+            '&fields=name' +
+            '%2Curl' +
+            '%2Cformatted_phone_number' +
+            '%2Caddress_component' +
+            '%2Cgeometry' +
+            '%2Cwebsite' +
+            '%2Cinternational_phone_number' +
+            '%2Copening_hours' +
+            this.key)
+        return this.placesDetailParser(response.data.result)}
+      ));
   }
   private placesDetailParser(apiResponse) {
     return {

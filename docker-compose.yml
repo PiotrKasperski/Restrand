@@ -13,7 +13,7 @@ services:
       # Reflect file changes from host to docker
     volumes:
       - ./app-restrand-api:/usr/src/app
-      - ./usr/src/app/node_modules
+      - /usr/src/app/node_modules
       # RUN in debug mode: npm run start:debug
       # RUN in dev mode: npm run start:dev
     command: npm run start:dev

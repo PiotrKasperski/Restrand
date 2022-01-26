@@ -12,6 +12,8 @@ export class RestaurantDetails {
   url?: string;
   @Column()
   website?: string;
+  @Column()
+  formatted_phone_number?: string;
 }
 /*{
       address: {

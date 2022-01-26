@@ -42,6 +42,7 @@ export class RestaurantsService {
     details.url = newRestaurantDetails.url;
     details.website = newRestaurantDetails.website;
     details.address = await this.createAddress(newRestaurantDetails.address);
+    details.formatted_phone_number= newRestaurantDetails.rest.formatted_phone_number;
     return this.restaurantDetailsRepository.save(details);
   }
   async create(
