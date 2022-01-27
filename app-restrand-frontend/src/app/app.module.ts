@@ -8,6 +8,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {RestaurantsModule} from "./restaurants/restaurants.module";
 import {HttpClientModule} from "@angular/common/http";
+import {UsersModule} from "./users/users.module";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {HttpClientModule} from "@angular/common/http";
     MatSidenavModule,
     MatGridListModule,
     RestaurantsModule,
+    UsersModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
