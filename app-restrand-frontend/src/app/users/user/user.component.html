@@ -1,1 +1,3 @@
-<button mat-button color="primary" (click)="openDialog()" class="main-page-button">Zaloguj</button>
+
+<div *ngIf="!isLogged()"><button mat-button color="primary" (click)="openDialog()" class="main-page-button">Zaloguj</button></div>
+<div *ngIf="isLogged()"><button mat-button colo="primary" (click)="logout()" class="main-page-button">Wyloguj</button> </div>

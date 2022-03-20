@@ -16,4 +16,11 @@ export class TokenService {
   getToken(): string|null{
     return localStorage.getItem('token');
 }
+isToken(): boolean{
+    return !!this.getToken();
+}
+
+  deleteToken() {
+    localStorage.removeItem('token');
+  }
 }

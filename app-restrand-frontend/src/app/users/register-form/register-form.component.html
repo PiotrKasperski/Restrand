@@ -1,1 +1,11 @@
-<p>register-form works!</p>
+<form>
+  <mat-form-field class="full-width">
+    <mat-label>Nazwa</mat-label>
+    <input matInput placeholder="Nazwa" [(ngModel)]="user.username" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <mat-label>Hasło</mat-label>
+    <input matInput placeholder="Hasło" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  <button mat-button color="primary" (click)="onRegister()">Zarejestruj</button>
+</form>

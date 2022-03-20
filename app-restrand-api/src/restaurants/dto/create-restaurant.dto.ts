@@ -9,6 +9,6 @@ export class CreateRestaurantDetailsDto {
 }
 export class CreateRestaurantAddressDto {
   street?: string;
-  street_number?: number;
+  street_number?: number; //TODO: change to string
   city?: string;
 }
