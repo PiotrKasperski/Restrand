@@ -1,24 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewRestaurantComponent } from './new-restaurant/new-restaurant.component';
-import {MatButtonModule} from "@angular/material/button";
+import {MatButtonModule} from '@angular/material/button';
 import { NewRestaurantDialogComponent } from './new-restaurant-dialog/new-restaurant-dialog.component';
-import {MatDialogModule} from "@angular/material/dialog";
-import {RestaurantsService} from "./restaurants.service";
+import {MatDialogModule} from '@angular/material/dialog';
+import {RestaurantsService} from './restaurants.service';
 import { RestaurantFormComponent } from './restaurant-form/restaurant-form.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 import { RandomRestaurantComponent } from './random-restaurant/random-restaurant.component';
 import { RandomRestaurantDialogComponent } from './random-restaurant-dialog/random-restaurant-dialog.component';
-import {MatCardModule} from "@angular/material/card";
+import {MatCardModule} from '@angular/material/card';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatListModule} from "@angular/material/list";
-import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { RestaurantSerchComponent } from './restaurant-serch/restaurant-serch.component';
-import {MatIconModule} from "@angular/material/icon";
-import {MatGridListModule} from "@angular/material/grid-list";
+import {MatIconModule} from '@angular/material/icon';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from '../users/auth.interceptor';
 
 
 
@@ -52,6 +54,11 @@ import {MatGridListModule} from "@angular/material/grid-list";
         MatIconModule,
         MatGridListModule
     ],
-  providers:[RestaurantsService]
+  providers: [RestaurantsService,
+    {provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+  },
+  ]
 })
 export class RestaurantsModule { }

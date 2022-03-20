@@ -7,16 +7,19 @@ import {
   Param,
   Delete,
   Logger,
+  UseGuards,
 } from '@nestjs/common';
 import { RestaurantsService } from './restaurants.service';
 import { CreateRestaurantDto } from './dto/create-restaurant.dto';
 import { UpdateRestaurantDto } from './dto/update-restaurant.dto';
 import { Restaurant } from './entities/restaurant.entity';
+import {JwtAuthGuard} from "../authentication/guards/jwt-auth.guard";
 
 @Controller('restaurants')
 export class RestaurantsController {
   constructor(private readonly restaurantsService: RestaurantsService) {}
   private readonly logger = new Logger(RestaurantsController.name);
+  @UseGuards(JwtAuthGuard)
   @Post()
   create(@Body() createRestaurantDto: CreateRestaurantDto) {
     this.logger.log('Request POST at /api/restaurants');
@@ -25,7 +28,6 @@ export class RestaurantsController {
 
   @Get()
   async findAll(): Promise<Array<Restaurant>> {
-    //this.restaurantsService.create({ name: 'jaffa', addres: 'plac solny' });
     this.logger.log('Request at /api/restaurants');
     return await this.restaurantsService.findAll();
   }

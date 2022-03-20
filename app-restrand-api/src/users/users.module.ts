@@ -10,7 +10,7 @@ import { AuthenticationModule } from '../authentication/authentication.module';
   providers: [UsersService],
   imports: [
     TypeOrmModule.forFeature([User]),
-    forwardRef(() => AuthenticationModule), //TODO: change  auth module to be standalone
+    forwardRef(() => AuthenticationModule),
   ],
   exports: [UsersService],
 })
