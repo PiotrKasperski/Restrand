@@ -3,7 +3,7 @@
 #################
 # Specify Node Version and Image
 # Name Image development (can be anything)
-FROM node:latest AS development
+FROM node:17.7.1 AS development
 
 # Specify Working directory inside container
 WORKDIR /usr/src/app
@@ -22,7 +22,7 @@ EXPOSE 3000
 ## PRODUCTION ##
 ################
 # Build another image named production
-FROM node:alpine AS production
+FROM node:17.7.1-alpine AS production
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
@@ -39,7 +39,7 @@ RUN npm install -g @nestjs/cli
 COPY . .
 
 COPY --from=development /usr/src/app/dist ./dist
-RUN npm install --only=production
+RUN npm install
 EXPOSE 3000
 
 # run app

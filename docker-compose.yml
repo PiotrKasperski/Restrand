@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
       context: ./app-restrand-api
       # Only build development stage from Dockerfile
-      target: development
+      target: production
       # Mount host dir to docker container
       # Mount api dir to docker container
       # Reflect file changes from host to docker

@@ -4,6 +4,14 @@ services:
 
   api:
     image: piotrkasperski/app-restrand-api:latest
+    build:
+      dockerfile: Dockerfile
+      context: ./app-restrand-api
+      # Only build development stage from Dockerfile
+      target: production
+      # Mount host dir to docker container
+      # Mount api dir to docker container
+      # Reflect file changes from host to docker
     volumes:
       - ./app-restrand-api:/usr/src/app
       - /usr/src/app/node_modules
