@@ -12,6 +12,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install deps inside container
+RUN npm install -g @nestjs/cli
 RUN npm install
 copy . .
 RUN npm run build
