@@ -9,6 +9,8 @@ import {Observable} from 'rxjs';
   templateUrl: './random-restaurant-dialog.component.html',
   styleUrls: ['./random-restaurant-dialog.component.scss']
 })
+//TODO:: szczegóły wylosowanej retauracji
+
 export class RandomRestaurantDialogComponent implements OnInit {
   randomRestaurant: Observable<Restaurant> = this.restaurantService.getRandomRestaurant();
 

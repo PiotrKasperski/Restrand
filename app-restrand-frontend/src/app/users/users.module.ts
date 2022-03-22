@@ -13,6 +13,8 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 
 
+//TODO: Wyłaczenie dialogu po zalogowaniu
+//TODO: Info o wymaganym logowaniu
 
 @NgModule({
   declarations: [

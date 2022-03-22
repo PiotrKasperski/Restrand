@@ -5,7 +5,7 @@
   </mat-form-field>
   <mat-form-field class="full-width">
     <mat-label>Hasło</mat-label>
-    <input matInput placeholder="Hasło" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}">
+    <input type="password" matInput placeholder="Hasło" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}">
   </mat-form-field>
   <button mat-button color="primary" (click)="onRegister()">Zarejestruj</button>
 </form>
